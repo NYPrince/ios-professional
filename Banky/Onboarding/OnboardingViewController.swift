@@ -11,6 +11,9 @@ class OnboardingViewController: UIViewController {
   
   let stackView = UIStackView()
   
+  let heroImageName: String
+  let titleText: String
+  
   let imageView = UIImageView()
   let label = UILabel()
   
@@ -21,11 +24,25 @@ class OnboardingViewController: UIViewController {
     
   }
   
+  init(heroImageName: String, titleText: String){
+    
+    self.heroImageName = heroImageName
+    self.titleText = titleText
+    
+    super.init(nibName: nil, bundle: nil)
+    
+  }
+  required init?(coder: NSCoder) {
+    fatalError("init(init(coder:)has not been implemented")
+  }
+  
 }
 
 extension OnboardingViewController {
   
   func style() {
+    view.backgroundColor = .systemBackground
+    
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
     stackView.spacing = 20
@@ -33,15 +50,15 @@ extension OnboardingViewController {
     //image
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.contentMode = .scaleAspectFit
-    imageView.image = UIImage(named: "delorean")
+    imageView.image = UIImage(named: heroImageName)
     
     
     label.translatesAutoresizingMaskIntoConstraints = false
     label.text = "Hey Rick"
     label.font = UIFont.preferredFont(forTextStyle: .title3)
-    label.adjustsFontForContentSizeCategory = false
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = 0
-    label.text = "Banky is the fastest , easiest to use, and as a brand look and feel that will make you feel like you're back in 1989"
+    label.text = titleText
   }
   func layout(){
     stackView.addArrangedSubview(imageView)

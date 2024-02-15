@@ -65,7 +65,7 @@ extension LoginView {
     stackView.addArrangedSubview(userNameTextField)
     stackView.addArrangedSubview(dividerView)
     stackView.addArrangedSubview(passwordtextField)
-//    stackView.addArrangedSubview(errorMessageLabel)
+
     addSubview(stackView)
 //    addSubview(userNameTextField)
 //    addSubview(passwordtextField)
